@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}DigitAI | MNIST Digit Recognition{% endblock %}
+
+{% block content %}
+<main class="hero">
+  <section class="panel intro-panel">
+    <p class="eyebrow">MNIST Handwritten Digit Recognition</p>
+    <h1>Turn Your Handwritten Digit Into AI Prediction</h1>
+    <p class="subtitle">
+      Upload an image of a handwritten digit and let our trained neural network identify it instantly.
+    </p>
+
+    <div class="controls">
+      <label class="upload-button" for="imageInput">Choose Image</label>
+      <button id="predictButton" class="primary-button" type="button">Predict Digit</button>
+      <button id="clearButton" class="secondary-button" type="button">Clear</button>
+    </div>
+
+    <input id="imageInput" type="file" accept=".png,.jpg,.jpeg,.webp,image/png,image/jpeg,image/webp" hidden />
+
+    <div id="statusBox" class="status-box">No image uploaded yet.</div>
+
+    <div class="preview-card">
+      <img id="previewImage" alt="Uploaded digit preview" hidden />
+    </div>
+
+    <div id="resultCard" class="result-card hidden">
+      <div class="result-header">
+        <span class="result-label">Prediction</span>
+        <span id="resultDigit" class="result-digit">-</span>
+      </div>
+
+      <div class="confidence-track">
+        <span id="confidenceFill"></span>
+      </div>
+      <div class="confidence-text">
+        <span id="confidenceText">0%</span>
+        <span>confidence</span>
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock %}
